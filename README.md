@@ -88,7 +88,7 @@ git clone https://github.com/lserra/challenge_hippo.git
 chmod +x setup_project.sh
 ```
 
-**Run the script**: execute the script to create the folders and set up the virtual environment.
+**Run the script**: execute the shell script to create the folders and set up the virtual environment.
 
 ```shell
 ./setup_project.sh
@@ -100,4 +100,44 @@ This script will:
 - Create a virtual environment named `.venv`.
 - Activate the virtual environment `.venv`.
 - Install python packages.
+
+**CSV/JSON files**: copy or move all folders and files uncompressed from `data.tar.gz` file to the `input` directory.
+
+```text
+├── input/
+│ |  └── claims/
+│ |     ├── output-2f620de6-8807-47bd-8034-13eec976c826.json
+│ |  └── pharmacies/
+│ |     ├── output-09482089-7f1b-4d36-a21f-4652ed460166.csv
+│ |  └── reverts/
+│ |     ├── output-1d5d70e3-d417-4fea-970d-95c04c64e0d5.json
+```
+
+**Get the results expected**: execute the python script below.
+
+```shell
+python3 hippo.py
+```
+
+After a few seconds you will see in your screen the results below:
+
+```text
+=====> pharmacies table created successfully
+=====> claims table created successfully
+=====> reverts table created successfully
+/Users/lserra/PyProjects/challenge_hippo/src/goal_two.py:53: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  df = pd.read_sql(query, con)
+=====> bt_claims table created successfully
+/Users/lserra/PyProjects/challenge_hippo/src/goal_two.py:81: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  df = pd.read_sql(query, con)
+=====> Metrics calculated successfully
+=====> JSON file created successfully at /Users/lserra/PyProjects/challenge_hippo/output/metrics.json
+/Users/lserra/PyProjects/challenge_hippo/src/goal_three.py:49: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  df = pd.read_sql(query, con)
+=====> Recommendations written to /Users/lserra/PyProjects/challenge_hippo/output/top_chains.json
+/Users/lserra/PyProjects/challenge_hippo/src/goal_four.py:45: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  df = pd.read_sql(query, con)
+=====> Most common quantities written to /Users/lserra/PyProjects/challenge_hippo/output/most_common_quantities.json
+✅ Hippo process finished successfully!
+```
 
