@@ -169,7 +169,7 @@ UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or 
 *Solution*: for this project, I made the decision not to use the `SQLALchemy` library to create a database connection to DuckDB, since I can create a direct connection through the DuckDB API.
 Please, ignore this warning message.
 
-**No module named 'pkg_resources'**: This happens when you are trying to create a data profiling report with the `eda.py` script and it has been verified that your virtual environment is activated.
+**No module named 'pkg_resources'**: this happens when you are trying to create a data profiling report with the `eda.py` script and it has been verified that your virtual environment is activated.
 
 *Solution*: run the command below to upgrade your setuptools.
 
