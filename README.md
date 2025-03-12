@@ -113,7 +113,7 @@ This script will:
 │ |     ├── output-1d5d70e3-d417-4fea-970d-95c04c64e0d5.json
 ```
 
-**Get the results expected**: execute the python script below.
+**Get the results expected**: open your terminal, go to the project root directory, ensure that the virtual environment is active, and execute the python script below.
 
 ```shell
 python3 hippo.py
@@ -140,4 +140,46 @@ After a few seconds you will see in your screen the results below:
 =====> Most common quantities written to /Users/lserra/PyProjects/challenge_hippo/output/most_common_quantities.json
 ✅ Hippo process finished successfully!
 ```
+
+# Issues known
+
+**Virtual Environment is not active**: this happens when you are trying to get the results expected. 
+
+```text
+Traceback (most recent call last):
+  File "/Users/lserra/PyProjects/challenge_hippo/hippo.py", line 21, in <module>
+    from src.goal_four import MostCommonQuantities as mcq
+  File "/Users/lserra/PyProjects/challenge_hippo/src/goal_four.py", line 19, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+```
+
+*Solution*: you can activate the virtual environment manually, open your terminal, go to the project root directory, and execute the command below.
+
+```shell
+source .venv/bin/activate
+```
+
+**UserWarning SQLAlchemy**: this happens when you are trying to get the results expected, and the message below appears. 
+
+```text
+UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+```
+
+*Solution*: for this project, I made the decision not to use the `SQLALchemy` library to create a database connection to DuckDB, since I can create a direct connection through the DuckDB API.
+Please, ignore this warning message.
+
+**No module named 'pkg_resources'**: This happens when you are trying to create a data profiling report with the `eda.py` script and it has been verified that your virtual environment is activated.
+
+*Solution*: run the command below to upgra your setuptools.
+
+```shell
+pip install --upgrade setuptools
+```
+
+# Why DuckDB?
+
+# Final words
+Thank you for your attention and for the opportunity to demonstrate my ideas and my work.
+Any issues or questions, please let me know: laercio.serra@gmail.com
 
