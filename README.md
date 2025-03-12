@@ -1,5 +1,4 @@
-# Challenge Hippo 
-____________________
+# Challenge Hippo
 
 # About the coding exercise
 #### GOAL 1: Read data stored in JSON files
@@ -174,6 +173,7 @@ Please, ignore this warning message.
 *Solution*: run the command below to upgrade your setuptools.
 
 ```shell
+pip install --upgrade pip
 pip install --upgrade setuptools
 ```
 
